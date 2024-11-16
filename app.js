@@ -21,15 +21,25 @@ app.get('/rides', (req, res) => {
 
 // POST endpoint to create a new test ride
 app.post('/rides', (req, res) => {
-  // Assuming request body contains ride data
-  const newRide = {
-  	email: req.body.email,
-  	date: req.body.date 
-  };
 
-  // Add new product logic here (e.g., assign an ID, save to database)
-  rideRecords.push(newRide);
-  res.status(201).json(newRide);
+  const emailId = req.body.email;
+  const rideRec = rideRecords.find(p => p.email === emailId);
+
+  if (rideRec) {
+    console.log('Error:: Ride record found with emailID: ', emailId);
+    res.status(409).json({error: "EmailID already exists! Please use diffrent emailID."});
+  } else {
+
+	  // Assuming request body contains ride data
+	  const newRide = {
+	  	email: req.body.email,
+	  	date: req.body.date 
+	  };
+
+	  // Add new product logic here (e.g., assign an ID, save to database)
+	  rideRecords.push(newRide);
+	  res.status(201).json(newRide);
+  }
 });
 
 
