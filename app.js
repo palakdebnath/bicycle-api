@@ -38,7 +38,7 @@ app.get('/rides', (req, res) => {
  *   post:
  *     summary: POST endpoint to create new ride record
  *     responses:
- *       200:
+ *       201:
  *         description: Create new ride record and returns object created
  */
 app.post('/rides', (req, res) => {
