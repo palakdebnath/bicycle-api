@@ -6,11 +6,8 @@ const app = express();
 // Middleware to parse JSON data
 app.use(express.json());
 
-app.use(cors({
-        origin: "https://bicycle-api.onrender.com,http://localhost:3000"
-    }
-))
-app.options('*', cors())
+app.use(cors())
+//app.options('*', cors())
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
