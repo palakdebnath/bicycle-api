@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { specs, swaggerUi } = require('./swagger');
 const app = express();
 
@@ -6,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-        origin: "https://bicycle-api.onrender.com", "http://localhost:3000"
+        origin: "https://bicycle-api.onrender.com,http://localhost:3000"
     }
 ))
 app.options('*', cors())
