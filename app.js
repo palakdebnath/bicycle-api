@@ -19,6 +19,18 @@ const rideRecords = [
   { email: 'cca@gmail.com', date: '10/12/2024' }
 ];
 
+const productList = [
+  { id:1, name: 'Girls Cycle', price: '100', image: "Cycle.jpg" },
+  { id:2, name: 'Boys Cycle', price: '100', image: "Cycle2.jpg" },
+  { id:3, name: '24" Cycle', price: '150', image: "Cycle3.jpg" },
+  { id:4, name: "Baby's Cycle", price: '80', image: "Cycle4.jpg" },
+  { id:5, name: "Pink Girl's Cycle", price: '75', image: "Cycle5.jpg" },
+  { id:6, name: 'Yellow Boys Cycle', price: '85', image: "Cycle6.jpg" },
+  { id:7, name: 'Boys Busket Cycle', price: '100', image: "Cycle7.jpg" },
+  { id:8, name: 'Gen-Z Cycle', price: '120', image: "Cycle11.jpg" },
+  { id:9, name: 'Hyper Cycle', price: '105', image: "Cycle13.jpg" },
+  { id:10, name: 'Spiderman Cycle', price: '115', image: "Cycle16.jpg" }
+];
 
 
 // GET endpoint to retrieve all products
@@ -88,6 +100,22 @@ app.get('/rides/:email', (req, res) => {
   } else {
     res.status(404).json({ message: 'Ride request not found' });
   }
+});
+
+
+
+// GET endpoint to retrieve all products
+/**
+ * @swagger
+ * /products:
+ *   get:
+ *     summary: GET endpoint to retrieve all products
+ *     responses:
+ *       200:
+ *         description: Returns list of all products
+ */
+app.get('/products', (req, res) => {
+  res.json(productList);
 });
 
 
